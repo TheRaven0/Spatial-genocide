@@ -195,7 +195,7 @@ void menu(){
       lcd.write (byte(7));
       lcd.print("ones utilizando");
       lcd.setCursor(0,2);
-      lcd.print("las teclas 2 4 6 8");
+      lcd.print("las teclas 2 4 5 6");
       lcd.setCursor(0,3);
       lcd.write (byte(6));
       lcd.print("buena suerte!");
@@ -261,7 +261,7 @@ void disparos(){
     nave();
     if(tecla!=NO_KEY){
       mov=tecla-48;
-      if(mov==2||mov==4||mov==6||mov==8){
+      if(mov==2||mov==4||mov==5||mov==6){
         mover(mov);
       }
       tecla=NO_KEY;
@@ -274,7 +274,7 @@ void disparos(){
     canones();
     if(tecla!=NO_KEY){
       mov=tecla-48;
-      if(mov==2||mov==4||mov==6||mov==8){
+      if(mov==2||mov==4||mov==5||mov==6){
         mover(mov);
       }
       tecla=NO_KEY;
@@ -287,7 +287,7 @@ void disparos(){
     canones();
     if(tecla!=NO_KEY){
       mov=tecla-48;
-      if(mov==2||mov==4||mov==6||mov==8){
+      if(mov==2||mov==4||mov==5||mov==6){
         mover(mov);
       }
       tecla=NO_KEY;
@@ -304,7 +304,7 @@ void disparos(){
     canones();
     if(tecla!=NO_KEY){
       mov=tecla-48;
-      if(mov==2||mov==4||mov==6||mov==8){
+      if(mov==2||mov==4||mov==5||mov==6){
         mover(mov);
       }
       tecla=NO_KEY;
@@ -320,7 +320,7 @@ void disparos(){
     canones();
     if(tecla!=NO_KEY){
       mov=tecla-48;
-      if(mov==2||mov==4||mov==6||mov==8){
+      if(mov==2||mov==4||mov==5||mov==6){
         mover(mov);
       }
       tecla=NO_KEY;
@@ -340,7 +340,7 @@ void disparos(){
     canones();
     if(tecla!=NO_KEY){
       mov=tecla-48;
-      if(mov==2||mov==4||mov==6||mov==8){
+      if(mov==2||mov==4||mov==5||mov==6){
         mover(mov);
       }
       tecla=NO_KEY;
@@ -360,30 +360,7 @@ void disparos(){
     canones();
     if(tecla!=NO_KEY){
       mov=tecla-48;
-      if(mov==2||mov==4||mov==6||mov==8){
-        mover(mov);
-      }
-      tecla=NO_KEY;
-    }
-    nave();
-    lcd.setCursor(DisPos1,oleada[0]);
-    lcd.print("-"); 
-    lcd.setCursor(DisPos2,oleada[1]);
-    lcd.print("-"); 
-    lcd.setCursor(DisPos3,oleada[2]);
-    lcd.print("-"); 
-    lcd.setCursor(DisPos4,oleada[3]);
-    lcd.print("-"); 
-    delay(200);
-    DisPos1++;
-    DisPos2++;
-    DisPos3++;
-    DisPos4++;
-    lcd.clear();
-    canones();
-    if(tecla!=NO_KEY){
-      mov=tecla-48;
-      if(mov==2||mov==4||mov==6||mov==8){
+      if(mov==2||mov==4||mov==5||mov==6){
         mover(mov);
       }
       tecla=NO_KEY;
@@ -406,7 +383,30 @@ void disparos(){
     canones();
     if(tecla!=NO_KEY){
       mov=tecla-48;
-      if(mov==2||mov==4||mov==6||mov==8){
+      if(mov==2||mov==4||mov==5||mov==6){
+        mover(mov);
+      }
+      tecla=NO_KEY;
+    }
+    nave();
+    lcd.setCursor(DisPos1,oleada[0]);
+    lcd.print("-"); 
+    lcd.setCursor(DisPos2,oleada[1]);
+    lcd.print("-"); 
+    lcd.setCursor(DisPos3,oleada[2]);
+    lcd.print("-"); 
+    lcd.setCursor(DisPos4,oleada[3]);
+    lcd.print("-"); 
+    delay(200);
+    DisPos1++;
+    DisPos2++;
+    DisPos3++;
+    DisPos4++;
+    lcd.clear();
+    canones();
+    if(tecla!=NO_KEY){
+      mov=tecla-48;
+      if(mov==2||mov==4||mov==5||mov==6){
         mover(mov);
       }
       tecla=NO_KEY;
@@ -476,8 +476,7 @@ void mover(int teclap){
     x--;
   }else if(teclap==6&&x!=19){
     x++;
-  }else if(teclap==8&&y!=3){
+  }else if(teclap==5&&y!=3){
     y++;
   }
 }
-
