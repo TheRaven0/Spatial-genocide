@@ -250,7 +250,7 @@ void nave(){
 }
 
 void disparos(){
-  int cont=0,DisPos1=2,DisPos2=2,DisPos3=2,DisPos4=2,mov;
+  int cont=0,DisPos1=2,DisPos2=2,DisPos3=2,DisPos4=2;
   long num;
   for (int i=0;i<11;i++){
     oleada[i] = random(4);
@@ -259,39 +259,21 @@ void disparos(){
   if (DisPos1==2&&DisPos2==2&&DisPos3==2&&DisPos4==2){
     canones();
     nave();
-    if(tecla!=NO_KEY){
-      mov=tecla-48;
-      if(mov==2||mov==4||mov==5||mov==6){
-        mover(mov);
-      }
-      tecla=NO_KEY;
-    }
+    leerTecla();
     lcd.setCursor(DisPos1,oleada[0]);
     lcd.print("-"); 
     delay(200);
     DisPos1++;
     lcd.clear();
     canones();
-    if(tecla!=NO_KEY){
-      mov=tecla-48;
-      if(mov==2||mov==4||mov==5||mov==6){
-        mover(mov);
-      }
-      tecla=NO_KEY;
-    }
+    leerTecla();
     nave();
     lcd.setCursor(DisPos1,oleada[0]);
     lcd.print("-");
     DisPos1++;
     lcd.clear();
     canones();
-    if(tecla!=NO_KEY){
-      mov=tecla-48;
-      if(mov==2||mov==4||mov==5||mov==6){
-        mover(mov);
-      }
-      tecla=NO_KEY;
-    }
+    leerTecla();
     nave();
     lcd.setCursor(DisPos1,oleada[0]);
     lcd.print("-"); 
@@ -302,13 +284,7 @@ void disparos(){
     DisPos2++;
     lcd.clear();
     canones();
-    if(tecla!=NO_KEY){
-      mov=tecla-48;
-      if(mov==2||mov==4||mov==5||mov==6){
-        mover(mov);
-      }
-      tecla=NO_KEY;
-    }
+    leerTecla();
     nave();
     lcd.setCursor(DisPos1,oleada[0]);
     lcd.print("-"); 
@@ -318,13 +294,7 @@ void disparos(){
     DisPos2++;
     lcd.clear();
     canones();
-    if(tecla!=NO_KEY){
-      mov=tecla-48;
-      if(mov==2||mov==4||mov==5||mov==6){
-        mover(mov);
-      }
-      tecla=NO_KEY;
-    }
+    leerTecla();
     nave();
     lcd.setCursor(DisPos1,oleada[0]);
     lcd.print("-"); 
@@ -338,13 +308,7 @@ void disparos(){
     DisPos3++;
     lcd.clear();
     canones();
-    if(tecla!=NO_KEY){
-      mov=tecla-48;
-      if(mov==2||mov==4||mov==5||mov==6){
-        mover(mov);
-      }
-      tecla=NO_KEY;
-    }
+    leerTecla();
     nave();
     lcd.setCursor(DisPos1,oleada[0]);
     lcd.print("-"); 
@@ -358,13 +322,8 @@ void disparos(){
     DisPos3++;
     lcd.clear();
     canones();
-    if(tecla!=NO_KEY){
-      mov=tecla-48;
-      if(mov==2||mov==4||mov==5||mov==6){
-        mover(mov);
-      }
-      tecla=NO_KEY;
-    }
+    tecla = teclado.getKey();
+    leerTecla();
     nave();
     lcd.setCursor(DisPos1,oleada[0]);
     lcd.print("-"); 
@@ -381,13 +340,7 @@ void disparos(){
     DisPos4++;
     lcd.clear();
     canones();
-    if(tecla!=NO_KEY){
-      mov=tecla-48;
-      if(mov==2||mov==4||mov==5||mov==6){
-        mover(mov);
-      }
-      tecla=NO_KEY;
-    }
+    leerTecla();
     nave();
     lcd.setCursor(DisPos1,oleada[0]);
     lcd.print("-"); 
@@ -404,13 +357,7 @@ void disparos(){
     DisPos4++;
     lcd.clear();
     canones();
-    if(tecla!=NO_KEY){
-      mov=tecla-48;
-      if(mov==2||mov==4||mov==5||mov==6){
-        mover(mov);
-      }
-      tecla=NO_KEY;
-    }
+    leerTecla();
     nave();
     lcd.setCursor(DisPos1,oleada[0]);
     lcd.print("-"); 
@@ -433,15 +380,7 @@ void disparos(){
   do{
     lcd.clear();
     canones();
-    if(tecla!=NO_KEY){
-      Serial.println("a");
-      mov=tecla-48;
-      if(mov==2){
-        mover(mov);
-        Serial.println("a");
-      }
-      tecla=NO_KEY;
-    }
+    leerTecla();
     nave();
     if(DisPos1<19){
       lcd.setCursor(DisPos1,oleada[0]);
@@ -467,6 +406,18 @@ void disparos(){
   }while(DisPos4<19);
   puntuacion++;
   disparos();
+}
+
+void leerTecla(){
+  int mov;
+  tecla = teclado.getKey();
+    if(tecla!=NO_KEY){
+      mov=tecla-48;
+      if(mov==2||mov==4||mov==5||mov==6){
+        mover(mov);
+      }
+      tecla=NO_KEY;
+    }
 }
 
 void mover(int teclap){
